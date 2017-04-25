@@ -1,6 +1,6 @@
 # npmdoc-ember-highcharts
 
-#### api documentation for  [ember-highcharts (v0.5.4)](https://github.com/ahmadsoe/ember-highcharts#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-ember-highcharts.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-ember-highcharts) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-ember-highcharts.svg)](https://travis-ci.org/npmdoc/node-npmdoc-ember-highcharts)
+#### basic api documentation for  [ember-highcharts (v0.5.4)](https://github.com/ahmadsoe/ember-highcharts#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-ember-highcharts.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-ember-highcharts) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-ember-highcharts.svg)](https://travis-ci.org/npmdoc/node-npmdoc-ember-highcharts)
 
 #### A Highcharts, HighStock and HighMaps component for ember cli
 
@@ -94,7 +94,8 @@
         "start": "ember server",
         "test": "ember try:each"
     },
-    "version": "0.5.4"
+    "version": "0.5.4",
+    "bin": {}
 }
 ```
 
