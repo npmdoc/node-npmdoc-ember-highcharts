@@ -74,7 +74,41 @@
 
         <li>
 
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">ember-highcharts.</span>index</span>
+
+        </li>
+
+        <li>
+
             <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">ember-highcharts.</span>name</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.ember-highcharts.index">module ember-highcharts.index</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ember-highcharts.index.included">
+            function <span class="apidocSignatureSpan">ember-highcharts.index.</span>included
+            <span class="apidocSignatureSpan">(target)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ember-highcharts.index.treeForVendor">
+            function <span class="apidocSignatureSpan">ember-highcharts.index.</span>treeForVendor
+            <span class="apidocSignatureSpan">(vendorTree)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">ember-highcharts.index.</span>name</span>
 
         </li>
 
@@ -145,6 +179,97 @@
     <h2>
         <a href="#apidoc.element.ember-highcharts.treeForVendor" id="apidoc.element.ember-highcharts.treeForVendor">
         function <span class="apidocSignatureSpan">ember-highcharts.</span>treeForVendor
+        <span class="apidocSignatureSpan">(vendorTree)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">treeForVendor = function (vendorTree) {
+  var trees = [];
+  var highchartsPath = path.dirname(require.resolve('highcharts'));
+
+  if (vendorTree) {
+    trees.push(vendorTree);
+  }
+
+  trees.push(new Funnel(highchartsPath, {
+    destDir: 'highcharts'
+  }));
+
+  return mergeTrees(trees);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.ember-highcharts.index" id="apidoc.module.ember-highcharts.index">module ember-highcharts.index</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.ember-highcharts.index.included" id="apidoc.element.ember-highcharts.index.included">
+        function <span class="apidocSignatureSpan">ember-highcharts.index.</span>included
+        <span class="apidocSignatureSpan">(target)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">included = function (target) {
+  this._super.included.apply(this, arguments);
+
+  var app = target.app || target;
+  var options = app.options.emberHighCharts || { includeHighCharts: true };
+  var highchartsPath = 'vendor/highcharts';
+
+  if (options.includeHighCharts) {
+    app.import(path.join(highchartsPath, 'highcharts.src.js'));
+  }
+
+  if (options.includeHighStock) {
+    app.import(path.join(highchartsPath, 'highstock.src.js'));
+  }
+
+  if (options.includeHighMaps) {
+    app.import(path.join(highchartsPath, 'highmaps.src.js'));
+  }
+
+  if (options.includeHighChartsMore) {
+    app.import(path.join(highchartsPath, 'highcharts-more.src.js'));
+  }
+
+  if (options.includeHighCharts3D) {
+    // boost module need to be imported before highcharts-3d
+    if (options.includeModules) {
+      var boostIndex = options.includeModules.indexOf('boost');
+      if (boostIndex !== -1) {
+        app.import(path.join(highchartsPath, 'modules', 'boost.src.js'));
+        options.includeModules.splice(boostIndex, 1);
+      }
+    }
+
+    app.import(path.join(highchartsPath, 'highcharts-3d.src.js'));
+  }
+
+  if (options.includeModules) {
+    var modules = options.includeModules;
+    for (var i = 0; i &lt; modules.length; i++) {
+      var moduleFilename = modules[i] + '.src.js';
+      app.import(path.join(highchartsPath, 'modules', moduleFilename));
+    }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.ember-highcharts.index.treeForVendor" id="apidoc.element.ember-highcharts.index.treeForVendor">
+        function <span class="apidocSignatureSpan">ember-highcharts.index.</span>treeForVendor
         <span class="apidocSignatureSpan">(vendorTree)</span>
         </a>
     </h2>
